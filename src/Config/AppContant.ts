@@ -1,6 +1,6 @@
 export const colors = {
     border: '#DCDCDC',
-    searchBG: '#FAFAFA'
+    background: '#FAFAFA'
 }
 
 export const images = {

@@ -16,5 +16,5 @@ export const Input = styled.input`
   height: 24px;
   border: solid ${colors.border} 1.5px;
   border-radius: 3px;
-  background-color: ${colors.searchBG};
+  background-color: ${colors.background};
 `;

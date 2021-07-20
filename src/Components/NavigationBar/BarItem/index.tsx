@@ -7,8 +7,8 @@ import compassImage from "../../../Assets/Images/icons/compass.png";
 import compassSelectedImage from "../../../Assets/Images/icons/compass-selected.png";
 import heartImage from "../../../Assets/Images/icons/heart.png";
 import heartSelectedImage from "../../../Assets/Images/icons/heart-selected.png";
-import { Link, useRouteMatch, NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useRouteMatch, NavLink } from "react-router-dom";
+import { useState } from "react";
 
 type barItemProp = {
   title: string;

@@ -2,6 +2,7 @@ import { NavView, Logo, ButtonView } from "./styles";
 import { images } from "../../Config/AppContant";
 import SearchBar from "./SearchBar";
 import BarItem, { itemBarName } from "./BarItem";
+import BarAvatar from "./BarAvatar";
 import { useRouteMatch } from "react-router-dom";
 import { useEffect } from 'react'
 
@@ -16,6 +17,7 @@ const NavigationBar = () => {
         <BarItem title={itemBarName.CHAT}/>
         <BarItem title={itemBarName.EXPLORE}/>
         <BarItem title={itemBarName.NOTICE}/>
+        <BarAvatar/>
       </ButtonView>
     </NavView>
   ); 
