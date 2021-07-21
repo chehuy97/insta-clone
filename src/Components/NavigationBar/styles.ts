@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { colors } from "../../Config/AppContant";
+import { color } from "../../Utils/AppContant";
 
 export const NavView = styled.div`
   height: 50px;
-  border-bottom: solid ${colors.border} 1.5px;
+  border-bottom: solid ${color.border} 1.5px;
   display: flex;
   flex-direction: row;
   align-items: center;

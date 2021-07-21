@@ -1,9 +1,17 @@
-const Home = () => {
-    return (
-        <div>
-            <p>That is Home</p>
-        </div>
-    )
-}
+import { news } from "../../Mocks/newfeed";
+import { HomeContainer, NewFeedContainer, StoryContainer } from "./styles";
+import NewsItem from './NewsItem'
 
-export default Home
+const Home = () => {
+
+  const listNewsFeed = news.map(item => <NewsItem data={item} />)
+
+  return (
+    <HomeContainer>
+      <StoryContainer></StoryContainer>
+      {listNewsFeed}
+    </HomeContainer>
+  );
+};
+
+export default Home;

@@ -1,10 +1,8 @@
 import { NavView, Logo, ButtonView } from "./styles";
-import { images } from "../../Config/AppContant";
+import { images } from "../../Utils/AppContant";
 import SearchBar from "./SearchBar";
 import BarItem, { itemBarName } from "./BarItem";
 import BarAvatar from "./BarAvatar";
-import { useRouteMatch } from "react-router-dom";
-import { useEffect } from 'react'
 
 const NavigationBar = () => {
 

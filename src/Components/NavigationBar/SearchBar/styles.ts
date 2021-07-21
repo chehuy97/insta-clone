@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../../Config/AppContant";
+import { mixin, color } from "../../../Utils/AppContant";
 
 export const InputView = styled.div`
   margin: 0px 250px 0px 250px;
@@ -14,7 +14,6 @@ export const InputView = styled.div`
 export const Input = styled.input`
   width: 215px;
   height: 24px;
-  border: solid ${colors.border} 1.5px;
-  border-radius: 3px;
-  background-color: ${colors.background};
+  ${mixin.border}
+  background-color: ${color.background};
 `;
