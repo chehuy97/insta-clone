@@ -10,6 +10,8 @@ import {
   ReactIcon,
   LikeText,
   Title,
+  PlayButton,
+  VideoWrapper,
 } from "./styles";
 import { useState, useRef } from "react";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
@@ -19,7 +21,8 @@ import comment from "../../../Assets/Images/icons/comment.png";
 import share from "../../../Assets/Images/icons/share.png";
 import bookmark from "../../../Assets/Images/icons/bookmark.png";
 import bookmarkSelected from "../../../Assets/Images/icons/bookmark-selected.png";
-import ReactPlayer from 'react-player'
+import ReactPlayer from "react-player";
+import playBtn from "../../../Assets/Images/icons/play-button.png";
 
 type newsItemProps = {
   data: News;
@@ -28,7 +31,7 @@ type newsItemProps = {
 const NewsItem = ({ data }: newsItemProps) => {
   const [like, setLike] = useState(false);
   const [mark, setMark] = useState(false);
-  const videoRef = useRef();
+  const [playing, setPlaying] = useState(false);
 
   return (
     <NewsContainer>
@@ -42,14 +45,10 @@ const NewsItem = ({ data }: newsItemProps) => {
       {data.type == "image" ? (
         <Image imageURL={data.url} />
       ) : (
-        // <Video controls loop>
-        //   <source src={data.url} type="video/mp4" />
-        // </Video>
-        <ReactPlayer 
-          height='650'
-          url={data.url}
-          controls
-          loop/>
+        <VideoWrapper onClick={() => setPlaying(!playing)}>
+          <ReactPlayer height="650px" url={data.url} playing={playing} loop />
+          {!playing ? <PlayButton url={playBtn} /> : null}
+        </VideoWrapper>
       )}
       <ReactContainer>
         <RowContainer>

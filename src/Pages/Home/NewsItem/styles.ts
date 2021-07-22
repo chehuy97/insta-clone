@@ -68,3 +68,23 @@ export const Title = styled.p`
   font-size: 13px;
   max-lines: 2;
 `;
+
+export const VideoWrapper = styled.div`
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+`
+
+export const PlayButton = styled.button`
+  position: absolute;
+  top: 40%;
+  width: 65px;
+  height: 65px;
+  border: 0;
+  ${({url}:{url:string}) => mixin.backgroundImage(url)};
+  &:active{
+    transform: translateY(2px);
+  }
+`

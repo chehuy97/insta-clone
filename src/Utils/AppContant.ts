@@ -25,7 +25,7 @@ export const mixin = {
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: ${color.backgroundLight};
+    background-color: transparent;
   `,
   border: css`
     border-radius: 3px;
