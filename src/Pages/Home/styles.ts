@@ -46,6 +46,7 @@ export const SeeAllButton = styled.button`
   ${mixin.button('black', 'gray')}
 `;
 
-export const HelpImage = styled.div`
-    ${({ imageURL }: { imageURL: string }) => mixin.backgroundImage(imageURL)};
+export const FooterImage = styled.img`
+    margin-top: 20px;
+    cursor: pointer;
 `

@@ -8,12 +8,12 @@ import {
   StoryContainer,
   SuggestText,
   SuggestTitleContainer,
-  HelpImage
+  FooterImage
 } from "./styles";
 import NewsItem from "./NewsItem";
 import AccountItem from "./Account";
 import FollowerItem from "./FollowerItem";
-import helpImage from '../../Assets/Images/help.png'
+import footer from '../../Assets/Images/footer.png'
 
 const Home = () => {
   const listNewsFeed = news.map((item) => <NewsItem data={item} />);
@@ -32,7 +32,7 @@ const Home = () => {
           <SeeAllButton>See All</SeeAllButton>
         </SuggestTitleContainer>
         {listFollowers}
-        <HelpImage imageURL={helpImage}/>
+        <FooterImage src={footer}/> 
       </MoreContainer>
     </HomeContainer>
   );

@@ -34,7 +34,7 @@ const [mark, setMark] = useState(false)
     <NewsContainer>
       <Header>
         <RowContainer>
-          <HeaderImage imageURL={data.imagePage} />
+          <HeaderImage url={data.imagePage} />
           <HeaderText>{data.namePage}</HeaderText>
         </RowContainer>
         <MoreHorizIcon />

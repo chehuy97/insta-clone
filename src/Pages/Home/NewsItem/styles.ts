@@ -19,16 +19,14 @@ export const Header = styled.div`
 `;
 
 export const HeaderImage = styled.div`
-  width: 26px;
-  height: 26px;
-  border-radius: 13px;
+  ${mixin.circleImage(26)}
   margin-right: 10px;
-  ${({ imageURL }: { imageURL: string }) => mixin.backgroundImage(imageURL)};
 `;
 
-export const HeaderText = styled.p`
+export const HeaderText = styled.button`
   font-size: 13px;
   font-weight: bold;
+  ${mixin.button('black', 'gray')}
 `;
 
 export const RowContainer = styled.div`
@@ -54,6 +52,7 @@ export const ReactIcon = styled.img`
   width: 22px;
   height: 22px;
   margin: 0px 10px 0px 10px;
+  cursor: pointer;
 `;
 export const LikeText = styled.p`
   font-size: small;

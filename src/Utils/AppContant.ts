@@ -33,6 +33,7 @@ export const mixin = {
   `,
   button: (color:string, clickedColor:string) => css`
     border: 0px;
+    cursor: pointer;
     background-color: transparent;
     color: ${color};
     &:active {
@@ -40,9 +41,10 @@ export const mixin = {
       transform: translateY(2px);
     }
   `,
-  avatar: (size:number) => css`
+  circleImage: (size:number) => css`
   width: ${size}px;
   height: ${size}px;
+  cursor: pointer;
   border-radius: ${size/2}px;
   ${({ url }: { url: string }) => mixin.backgroundImage(url)}
   `

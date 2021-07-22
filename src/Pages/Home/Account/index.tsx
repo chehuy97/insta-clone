@@ -3,7 +3,8 @@ import {
   Avatar,
   InfoContainer,
   SwitchButton,
-  AccountText,
+  Name,
+  Username,
 } from "./styles";
 import avatarUrl from "../../../Assets/Images/avatar/avatar-60.png";
 
@@ -12,11 +13,10 @@ const Account = () => {
     <AccountContainer>
       <InfoContainer>
         <Avatar url={avatarUrl} />
-        <AccountText>
-          <b>chehuy97</b>
-          <br />
-          Che Quang huy
-        </AccountText>
+        <div>
+          <Username>chehuy97</Username>
+          <Name>Che Quang huy</Name>
+        </div>
       </InfoContainer>
       <SwitchButton>Switch</SwitchButton>
     </AccountContainer>
