@@ -29,7 +29,7 @@ export const HeaderImage = styled.div`
 export const HeaderText = styled.button`
   font-size: 13px;
   font-weight: bold;
-  ${mixin.button('black', 'gray')}
+  ${mixin.button("black", "gray")}
 `;
 
 export const RowContainer = styled.div`
@@ -64,7 +64,7 @@ export const LikeText = styled.p`
 `;
 
 export const Title = styled.p`
-margin: 0px 15px 0px 10px;
-font-size: 13px;
-max-lines: 2;
-`
+  margin: 0px 15px 0px 10px;
+  font-size: 13px;
+  max-lines: 2;
+`;
