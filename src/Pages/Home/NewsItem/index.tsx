@@ -1,4 +1,4 @@
-import { News } from "../../../Mocks/newfeed";
+import { News } from "../../../Mocks/newsfeed";
 import {
   NewsContainer,
   RowContainer,

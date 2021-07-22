@@ -4,6 +4,11 @@ export const color = {
   border: "#DCDCDC",
   background: "#FAFAFA",
   backgroundLight: "#ebecf0",
+  lightBlue: "#0095f6"
+};
+
+export const fontSize = {
+  normal: 14,
 };
 
 export const images = {
@@ -11,8 +16,8 @@ export const images = {
 };
 
 export const dimen = {
-    contentWidth: 610,
-}
+  contentWidth: 600,
+};
 
 export const mixin = {
   backgroundImage: (imageURL: string) => css`
@@ -26,4 +31,19 @@ export const mixin = {
     border-radius: 3px;
     border: 1.5px solid ${color.border};
   `,
+  button: (color:string, clickedColor:string) => css`
+    border: 0px;
+    background-color: transparent;
+    color: ${color};
+    &:active {
+      color: ${clickedColor};
+      transform: translateY(2px);
+    }
+  `,
+  avatar: (size:number) => css`
+  width: ${size}px;
+  height: ${size}px;
+  border-radius: ${size/2}px;
+  ${({ url }: { url: string }) => mixin.backgroundImage(url)}
+  `
 };

@@ -27,7 +27,8 @@ export const HeaderImage = styled.div`
 `;
 
 export const HeaderText = styled.p`
-  font-size: medium;
+  font-size: 13px;
+  font-weight: bold;
 `;
 
 export const RowContainer = styled.div`
@@ -62,6 +63,6 @@ export const LikeText = styled.p`
 
 export const Title = styled.p`
 margin: 0px 15px 0px 10px;
-font-size: 14px;
+font-size: 13px;
 max-lines: 2;
 `

@@ -1,8 +1,6 @@
 import styled from 'styled-components'
+import { mixin } from '../../../Utils/AppContant'
 
-export const Avatar = styled.img`
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
-    margin-left: 10px;
+export const Avatar = styled.div`
+    ${mixin.avatar(20)}
 `
