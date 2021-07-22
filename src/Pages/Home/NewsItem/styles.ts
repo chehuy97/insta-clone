@@ -7,6 +7,9 @@ export const NewsContainer = styled.div`
   ${mixin.border};
   padding-bottom: 30px;
   margin-bottom: 20px;
+  @media screen and (max-width: 600px) {
+    width: 100vw;
+  }
 `;
 
 export const Header = styled.div`

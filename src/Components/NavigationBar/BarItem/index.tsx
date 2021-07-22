@@ -65,11 +65,9 @@ const BarItem = ({ title, handleEvent }: barItemProp) => {
         isActive={(match, location) => {
           if (!match) {
             setIsActive(false);
-            console.log("no active icon " + title);
             return false;
           }
           setIsActive(true);
-          console.log("active icon " + title);
           return true;
         }}
       >
