@@ -4,16 +4,15 @@ import HomePage from '../Pages/Home'
 import WallPage from '../Pages/Wall'
 import ChatPage from '../Pages/Chat'
 import ExplorePage from '../Pages/Explore'
+import StoryPage from '../Pages/Story'
+import NavigationRoute from './NavigationRoute'
 
 const Routes = () => {
     return (
         <Router>
-            <NavigationBar/>
             <Switch>
-                <Route path="/" exact component={HomePage}/>
-                <Route path="/wall" component={WallPage}/>
-                <Route path='/chat' component={ChatPage}/>
-                <Route path='/explore' component={ExplorePage}/>
+                <Route path='/' exact component={NavigationRoute}/>
+                <Route path='/stories' component={StoryPage}/>
             </Switch>
         </Router>
     )
