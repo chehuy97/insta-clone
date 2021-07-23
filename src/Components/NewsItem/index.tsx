@@ -1,4 +1,4 @@
-import { News } from "../../../Mocks/newsfeed";
+import { News } from "../../Mocks/newsfeed";
 import {
   NewsContainer,
   RowContainer,
@@ -15,14 +15,14 @@ import {
 } from "./styles";
 import { useState, useRef } from "react";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-import redHeart from "../../../Assets/Images/icons/red-heart.png";
-import heart from "../../../Assets/Images/icons/heart.png";
-import comment from "../../../Assets/Images/icons/comment.png";
-import share from "../../../Assets/Images/icons/share.png";
-import bookmark from "../../../Assets/Images/icons/bookmark.png";
-import bookmarkSelected from "../../../Assets/Images/icons/bookmark-selected.png";
+import redHeart from "../../Assets/Images/icons/red-heart.png";
+import heart from "../../Assets/Images/icons/heart.png";
+import comment from "../../Assets/Images/icons/comment.png";
+import share from "../../Assets/Images/icons/share.png";
+import bookmark from "../../Assets/Images/icons/bookmark.png";
+import bookmarkSelected from "../../Assets/Images/icons/bookmark-selected.png";
 import ReactPlayer from "react-player";
-import playBtn from "../../../Assets/Images/icons/play-button.png";
+import playBtn from "../../Assets/Images/icons/play-button.png";
 
 type newsItemProps = {
   data: News;

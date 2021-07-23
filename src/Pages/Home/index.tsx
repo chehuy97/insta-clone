@@ -2,38 +2,30 @@ import { news } from "../../Mocks/newsfeed";
 import { followers } from "../../Mocks/follower";
 import {
   HomeContainer,
-  MoreContainer,
   NewFeedContainer,
-  SeeAllButton,
   StoryContainer,
-  SuggestText,
-  SuggestTitleContainer,
-  FooterImage
 } from "./styles";
-import NewsItem from "./NewsItem";
-import AccountItem from "./Account";
-import FollowerItem from "./FollowerItem";
+import NewsItem from "../../Components/NewsItem";
+import AccountItem from "../../Components/RightNavigation/Account";
+import FollowerItem from "../../Components/RightNavigation/FollowerItem";
 import footer from '../../Assets/Images/footer.png'
+import RightNavigation from "../../Components/RightNavigation";
+import StoryItem from "../../Components/StoryItem";
+import { stories } from '../../Mocks/story'
 
 const Home = () => {
   const listNewsFeed = news.map((item) => <NewsItem data={item} />);
-  const listFollowers = followers.map((item) => <FollowerItem data={item} />);
+  const listStories = stories.map((item => <StoryItem data={item}/>))
 
   return (
     <HomeContainer>
       <NewFeedContainer>
-        <StoryContainer></StoryContainer>
+        <StoryContainer>
+          {listStories}
+        </StoryContainer>
         {listNewsFeed}
       </NewFeedContainer>
-      <MoreContainer>
-        <AccountItem />
-        <SuggestTitleContainer>
-          <SuggestText>Suggestions For You</SuggestText>
-          <SeeAllButton>See All</SeeAllButton>
-        </SuggestTitleContainer>
-        {listFollowers}
-        <FooterImage src={footer}/> 
-      </MoreContainer>
+      <RightNavigation/>
     </HomeContainer>
   );
 };

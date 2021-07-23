@@ -1,4 +1,4 @@
-import { mixin, dimen } from "../../../Utils/AppContant";
+import { mixin, dimen } from "../../Utils/AppContant";
 import styled from "styled-components";
 
 export const NewsContainer = styled.div`
