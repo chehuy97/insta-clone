@@ -13,10 +13,12 @@ export const fontSize = {
 
 export const images = {
   logo: "https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png",
+  logo_light: 'https://www.instagram.com/static/images/web/mobile_nav_type_logo-dark.png/ff9b85f2b7ca.png'
 };
 
 export const dimen = {
   contentWidth: 600,
+  mainStoryWidth: 580
 };
 
 export const mixin = {

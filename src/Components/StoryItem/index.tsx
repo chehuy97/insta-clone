@@ -17,7 +17,10 @@ const StoryItem = ({ data }: storyProps) => {
         <Image 
           url={data.imagePage} 
           onClick={() => {
-            history.push(match.path+'stories/')
+            history.push({
+              pathname:match.path+'stories/'+data.id,
+              state: data
+            })
           }}/>
       </ImageWrapper>
       <Name>{data.pageName}</Name>
