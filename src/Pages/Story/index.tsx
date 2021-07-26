@@ -40,6 +40,7 @@ const StoryPage = () => {
   const [storyIndex, setStoryIndex] = useState(0);
   const [playing, setPlaying] = useState(true);
   const [sound, setSound] = useState(true);
+  const [duration,setDuration] = useState(6)
   const contentLength = storyItem.content.length;
 
   useEffect(() => {
@@ -49,7 +50,6 @@ const StoryPage = () => {
           if (storyIndex < contentLength - 1) {
             setStoryIndex(storyIndex + 1);
           } else if ((pageIndex < stories.length - 1) ) {
-            console.log('hehe');
             setStoryIndex(0)
             setStoryIndex(0)
             setPageIndex(pageIndex + 1);
@@ -57,14 +57,15 @@ const StoryPage = () => {
           }
           return 0;
         }
-        return Math.min(oldProgress + 5, 100);
+        
+        return Math.min(oldProgress + 100/(duration/0.21), 100);
       });
-    }, 300);
+    }, 200);
 
     return () => {
       clearInterval(timer);
     };
-  }, [storyItem, storyIndex, pageIndex]);
+  }, [storyItem, storyIndex, pageIndex, duration]);
 
   const progressNumber = (index: number): number => {
     if (index < storyIndex) {
@@ -131,7 +132,7 @@ const StoryPage = () => {
         <MainStoryWrapper>
           {listProgresses}
           {storyItem.content[storyIndex].type == "image" ? (
-            <Image src={storyItem.content[storyIndex].url} />
+            <Image src={storyItem.content[storyIndex].url} onLoad={() =>setDuration(6)}/>
           ) : (
             <ReactPlayer
               width={dimen.mainStoryWidth + "px"}
@@ -139,6 +140,7 @@ const StoryPage = () => {
               playing={playing}
               muted={!sound}
               loop
+              onDuration={setDuration}
             />
           )}
           <ControlBar>
