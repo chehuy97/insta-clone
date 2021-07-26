@@ -66,12 +66,38 @@ export const ProgressBar = styled(LinearProgress)`
 }
 `
 
-// export const useStyles = makeStyles({
-//   linearBar:{
-//     position: 'absolute',
-//     background: 'rgba(230, 230, 230, 0.3)',
-//     top: 20,
-//     left: ({amount}:{amount:number}) => 5+(dimen.mainStoryWidth - (amount+1)*5)/amount*(amount-1),
-//     width: ({amount}:{amount:number}) => 5+(dimen.mainStoryWidth - (amount+1)*5)/amount,
-//   }
-// })
+export const ControlBar = styled.div`
+  position: absolute;
+  top: 35px;
+  left: 5px;
+  right: 5px;
+  height: 40px;
+  display: flex;
+  padding: 0px 10px 0px 10px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`
+ export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+ `
+
+ export const PageImage = styled.div`
+  ${mixin.circleImage(30)}
+ `
+
+ export const PageName = styled.p`
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  margin: 0px 0px 0px 10px;
+ `
+
+ export const BarButton = styled.div`
+  width: 15px;
+  height: 15px;
+ margin: 0px 0px 0px 10px;
+  ${ ({url}:{url:string}) => mixin.backgroundImage(url)}
+ `

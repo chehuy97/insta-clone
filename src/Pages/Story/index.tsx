@@ -7,6 +7,11 @@ import {
   Image,
   ProgressBar,
   ChangeStoryButton,
+  ControlBar,
+  Wrapper,
+  PageImage,
+  PageName,
+  BarButton,
 } from "./styles";
 import { images } from "../../Utils/AppContant";
 import cancelImg from "../../Assets/Images/icons/cancel.png";
@@ -16,6 +21,12 @@ import { useState, useEffect } from "react";
 import previousBtn from "../../Assets/Images/icons/previous.png";
 import nextBtn from "../../Assets/Images/icons/next.png";
 import { dimen } from "../../Utils/AppContant";
+import ReactPlayer from "react-player";
+import imgSound from "../../Assets/Images/icons/sound.png";
+import imgMuteSound from "../../Assets/Images/icons/mute-sound.png";
+import imgPlay from "../../Assets/Images/icons/play-button.png";
+import imgPause from "../../Assets/Images/icons/pause-button.png";
+import imgMore from "../../Assets/Images/icons/more.png";
 
 const StoryPage = () => {
   const history = useHistory();
@@ -23,15 +34,17 @@ const StoryPage = () => {
   const storyItem = state as Story;
   const [progress, setProgress] = useState(0);
   const [storyIndex, setStoryIndex] = useState(0);
+  const [playing, setPlaying] = useState(false);
+  const [sound, setSound] = useState(true);
   const contentLength = storyItem.content.length;
 
   useEffect(() => {
     const timer = setInterval(() => {
       setProgress((oldProgress) => {
         if (oldProgress === 100) {
-          if(storyIndex < contentLength-1) {
-            setStoryIndex(storyIndex+1)
-          } 
+          if (storyIndex < contentLength - 1) {
+            setStoryIndex(storyIndex + 1);
+          }
           return 0;
         }
         return Math.min(oldProgress + 5, 100);
@@ -56,11 +69,11 @@ const StoryPage = () => {
   const listProgresses = storyItem.content.map((item, index) => (
     <ProgressBar
       marginLeft={
-        7 * (index + 1) +
-        ((dimen.mainStoryWidth - (contentLength + 1) * 7) / contentLength) *
+        10 * (index + 1) +
+        ((dimen.mainStoryWidth - (contentLength + 1) * 10) / contentLength) *
           index
       }
-      width={(dimen.mainStoryWidth - (contentLength + 1) * 7) / contentLength}
+      width={(dimen.mainStoryWidth - (contentLength + 1) * 10) / contentLength}
       variant="determinate"
       value={progressNumber(index)}
     />
@@ -68,14 +81,14 @@ const StoryPage = () => {
 
   const previousStory = () => {
     if (storyIndex > 0) {
-      setProgress(0)
+      setProgress(0);
       setStoryIndex(storyIndex - 1);
     }
   };
 
   const nextStory = () => {
-    if (storyIndex < contentLength-1) {
-      setProgress(0)
+    if (storyIndex < contentLength - 1) {
+      setProgress(0);
       setStoryIndex(storyIndex + 1);
     }
   };
@@ -87,7 +100,33 @@ const StoryPage = () => {
         <ChangeStoryButton url={previousBtn} onClick={() => previousStory()} />
         <MainStoryWrapper>
           {listProgresses}
-          <Image src={storyItem.content[storyIndex].url} />
+          {storyItem.content[storyIndex].type == "image" ? (
+            <Image src={storyItem.content[storyIndex].url} />
+          ) : (
+            <ReactPlayer
+              width={dimen.mainStoryWidth + "px"}
+              url={storyItem.content[storyIndex].url}
+              playing={playing}
+              loop
+            />
+          )}
+          <ControlBar>
+            <Wrapper>
+              <PageImage url={storyItem.imagePage} />
+              <PageName>{storyItem.pageName}</PageName>
+            </Wrapper>
+            <Wrapper>
+              <BarButton
+                onClick={() => setPlaying(!playing)}
+                url={playing ? imgPlay : imgPause}
+              />
+              <BarButton
+                onClick={() => setSound(!sound)}
+                url={sound ? imgSound : imgMuteSound}
+              />
+              <BarButton url={imgMore} />
+            </Wrapper>
+          </ControlBar>
         </MainStoryWrapper>
         <ChangeStoryButton url={nextBtn} onClick={() => nextStory()} />
       </StoryContainer>
