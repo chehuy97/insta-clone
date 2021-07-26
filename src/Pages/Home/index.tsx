@@ -17,7 +17,7 @@ import { Route, useRouteMatch } from 'react-router-dom'
 
 const Home = () => {
   const listNewsFeed = news.map((item) => <NewsItem data={item} />);
-  const listStories = stories.map((item) => <StoryItem data={item}/>);
+  const listStories = stories.map((item, index) => <StoryItem data={item} index={index}/>);
   const match = useRouteMatch()
 
   return (

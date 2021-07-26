@@ -4,9 +4,10 @@ import { Container, ImageWrapper, Image, Name } from "./styles";
 
 type storyProps = {
   data: Story;
+  index: number
 };
 
-const StoryItem = ({ data }: storyProps) => {
+const StoryItem = ({ data, index }: storyProps) => {
 
   const history = useHistory()
   const match = useRouteMatch()
@@ -18,8 +19,8 @@ const StoryItem = ({ data }: storyProps) => {
           url={data.imagePage} 
           onClick={() => {
             history.push({
-              pathname:match.path+'stories/'+data.id,
-              state: data
+              pathname:match.path+'stories/'+data.pageName,
+              state: index
             })
           }}/>
       </ImageWrapper>

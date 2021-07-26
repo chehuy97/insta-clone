@@ -1,38 +1,6 @@
-import styled from "styled-components";
-import { mixin, dimen, color } from "../../Utils/AppContant";
+import styled from 'styled-components'
+import { dimen, mixin  } from '../../../Utils/AppContant'
 import LinearProgress from "@material-ui/core/LinearProgress";
-
-export const Container = styled.div`
-  height: 100vh;
-  background-color: black;
-  display: flex;
-  flex: auto;
-  flex-direction: row;
-  justify-content: space-between;
-`;
-
-export const Logo = styled.img`
-  width: 103px;
-  height: 33px;
-  margin: 20px;
-`;
-export const CloseButton = styled.img`
-  width: 20px;
-  height: 20px;
-  margin: 20px;
-  &:active {
-    transform: translateY(2px);
-  }
-`;
-
-export const StoryContainer = styled.div`
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-`;
 
 export const MainStoryWrapper = styled.div`
   width: ${dimen.mainStoryWidth}px;

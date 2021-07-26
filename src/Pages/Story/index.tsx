@@ -15,7 +15,7 @@ import {
 } from "./styles";
 import { images } from "../../Utils/AppContant";
 import cancelImg from "../../Assets/Images/icons/cancel.png";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation, useRouteMatch } from "react-router-dom";
 import { Story } from "../../Mocks/story";
 import { useState, useEffect } from "react";
 import previousBtn from "../../Assets/Images/icons/previous.png";
@@ -27,23 +27,33 @@ import imgMuteSound from "../../Assets/Images/icons/mute-sound.png";
 import imgPlay from "../../Assets/Images/icons/play-button.png";
 import imgPause from "../../Assets/Images/icons/pause-button.png";
 import imgMore from "../../Assets/Images/icons/more.png";
+import { stories } from "../../Mocks/story";
+import ExtraStory from "./ExtraStory";
 
 const StoryPage = () => {
   const history = useHistory();
+  const match = useRouteMatch();
   const { state } = useLocation();
-  const storyItem = state as Story;
+  const [pageIndex, setPageIndex] = useState(state as number);
+  const [storyItem, setStoryItem] = useState(stories[pageIndex]);
   const [progress, setProgress] = useState(0);
   const [storyIndex, setStoryIndex] = useState(0);
-  const [playing, setPlaying] = useState(false);
+  const [playing, setPlaying] = useState(true);
   const [sound, setSound] = useState(true);
   const contentLength = storyItem.content.length;
 
   useEffect(() => {
     const timer = setInterval(() => {
       setProgress((oldProgress) => {
-        if (oldProgress === 100) {
+        if (oldProgress === 100) {       
           if (storyIndex < contentLength - 1) {
             setStoryIndex(storyIndex + 1);
+          } else if ((pageIndex < stories.length - 1) ) {
+            console.log('hehe');
+            setStoryIndex(0)
+            setStoryIndex(0)
+            setPageIndex(pageIndex + 1);
+            setStoryItem(stories[pageIndex + 1]);
           }
           return 0;
         }
@@ -54,7 +64,7 @@ const StoryPage = () => {
     return () => {
       clearInterval(timer);
     };
-  }, [storyIndex]);
+  }, [storyItem, storyIndex, pageIndex]);
 
   const progressNumber = (index: number): number => {
     if (index < storyIndex) {
@@ -80,9 +90,15 @@ const StoryPage = () => {
   ));
 
   const previousStory = () => {
-    if (storyIndex > 0) {
+    if (storyIndex != 0) {
       setProgress(0);
       setStoryIndex(storyIndex - 1);
+      // history.push(match.path+'/'+storyItem.pageName+'/'+storyItem.content[storyIndex].story_id)
+    } else if (pageIndex != 0) {
+      setProgress(0);
+      setStoryIndex(0)
+      setPageIndex(pageIndex - 1);
+      setStoryItem(stories[pageIndex - 1]);
     }
   };
 
@@ -90,6 +106,12 @@ const StoryPage = () => {
     if (storyIndex < contentLength - 1) {
       setProgress(0);
       setStoryIndex(storyIndex + 1);
+      // history.push(match.path+'/'+storyItem.pageName+'/'+storyItem.content[storyIndex].story_id)
+    } else if (pageIndex < stories.length - 1) {
+      setProgress(0);
+      setStoryIndex(0)
+      setPageIndex(pageIndex + 1);
+      setStoryItem(stories[pageIndex+1]);
     }
   };
 
@@ -97,6 +119,14 @@ const StoryPage = () => {
     <Container>
       <Logo src={images.logo_light} />
       <StoryContainer>
+        <Wrapper>
+          {!(pageIndex < 2) ? (
+            <ExtraStory storyItem={stories[pageIndex - 2]} />
+          ) : null}
+          {!(pageIndex < 1) ? (
+            <ExtraStory storyItem={stories[pageIndex - 1]} />
+          ) : null}
+        </Wrapper>
         <ChangeStoryButton url={previousBtn} onClick={() => previousStory()} />
         <MainStoryWrapper>
           {listProgresses}
@@ -107,6 +137,7 @@ const StoryPage = () => {
               width={dimen.mainStoryWidth + "px"}
               url={storyItem.content[storyIndex].url}
               playing={playing}
+              muted={!sound}
               loop
             />
           )}
@@ -118,7 +149,7 @@ const StoryPage = () => {
             <Wrapper>
               <BarButton
                 onClick={() => setPlaying(!playing)}
-                url={playing ? imgPlay : imgPause}
+                url={!playing ? imgPlay : imgPause}
               />
               <BarButton
                 onClick={() => setSound(!sound)}
@@ -129,6 +160,14 @@ const StoryPage = () => {
           </ControlBar>
         </MainStoryWrapper>
         <ChangeStoryButton url={nextBtn} onClick={() => nextStory()} />
+        <Wrapper>
+          {!(pageIndex > stories.length - 2) ? (
+            <ExtraStory storyItem={stories[pageIndex + 1]} />
+          ) : null}
+          {!(pageIndex > stories.length - 3) ? (
+            <ExtraStory storyItem={stories[pageIndex + 2]} />
+          ) : null}
+        </Wrapper>
       </StoryContainer>
       <CloseButton src={cancelImg} onClick={() => history.goBack()} />
     </Container>
