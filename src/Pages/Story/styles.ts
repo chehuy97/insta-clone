@@ -1,3 +1,4 @@
+import { screen } from '@testing-library/react';
 import styled from "styled-components";
 import { mixin, dimen, color } from "../../Utils/AppContant";
 import LinearProgress from "@material-ui/core/LinearProgress";
@@ -12,11 +13,13 @@ export const Container = styled.div`
 `;
 
 export const Logo = styled.img`
+  z-index: 1;
   width: 103px;
   height: 33px;
   margin: 20px;
 `;
 export const CloseButton = styled.img`
+  z-index: 1;
   width: 20px;
   height: 20px;
   margin: 20px;
@@ -26,6 +29,7 @@ export const CloseButton = styled.img`
 `;
 
 export const StoryContainer = styled.div`
+  z-index: 2;
   display: flex;
   flex: 1;
   flex-direction: row;
@@ -36,17 +40,24 @@ export const StoryContainer = styled.div`
 
 export const MainStoryWrapper = styled.div`
   width: ${dimen.mainStoryWidth}px;
-  height: 1060px;
+  height: ${dimen.mainStoryWidth * 1.8}px;
   background-color: gray;
   border-radius: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
   position: relative;
+  @media screen and (max-width: 2000px) {
+    width: ${(dimen.mainStoryWidth * 2) / 3}px;
+    height: ${(dimen.mainStoryWidth * 1.8 * 2) / 3}px;
+  }
 `;
 
 export const Image = styled.img`
   width: ${dimen.mainStoryWidth}px;
+  @media screen and (max-width: 2000px) {
+    width: ${(dimen.mainStoryWidth * 2) / 3}px;
+  }
 `;
 
 export const ChangeStoryButton = styled.div`
@@ -59,9 +70,7 @@ export const ProgressBar = styled(LinearProgress)`
     background-color: rgba(230, 230, 230, 0.3);
     position: absolute;
     top: 20px;
-    left: ${({ marginLeft }: { marginLeft: number; width: number }) =>
-      marginLeft}px;
-    width: ${({ width }: { marginLeft: number; width: number }) => width}px;
+    ${({ marginLeft, width, index }: { marginLeft: number; width: number, index:number }) => mixin.progressBar(marginLeft, width, index)}; 
   }
 `;
 

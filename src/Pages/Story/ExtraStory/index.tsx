@@ -2,13 +2,14 @@ import { Story } from '../../../Mocks/story'
 import { Container, PageWrapper, PageImage, PageName, Image } from './styles'
 
 type extraStoryProps = {
-    storyItem:Story
+    storyItem:Story,
+    index: number
 }
 
-const ExtraStory = ({storyItem}:extraStoryProps) => {
+const ExtraStory = ({storyItem, index}:extraStoryProps) => {
     
     return(
-        <Container>
+        <Container index={index} >
             <Image src={storyItem.content[0].url}/>
             <PageWrapper>
                 <PageImage url={storyItem.imagePage} />

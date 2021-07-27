@@ -1,10 +1,10 @@
-import styled from 'styled-components'
-import { mixin } from  '../../../Utils/AppContant'
-
+import styled, {css} from "styled-components";
+import { mixin, dimen } from "../../../Utils/AppContant";
+import index from "../MainStory";
 
 export const Container = styled.div`
-  width: 280px;
-  height: 460px;
+  width: ${dimen.extraStoryWidth};
+  height: ${dimen.extraStoryWidth * 1.8}px;
   background: gray;
   margin-left: 30px;
   border-radius: 7px;
@@ -12,7 +12,22 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
+  @media screen and (max-width: 2000px) {
+    width: ${(dimen.extraStoryWidth * 2) / 3}px;
+    height: ${(dimen.extraStoryWidth * 1.8 * 2) / 3}px;
+  }
+  @media screen and (max-width: 1500px) {
+    ${({index}:{index:number}) => index === 2 && css`
+      display: none;
+    `}
+  }
+    @media screen and (max-width: 1100px) {
+    ${({index}:{index:number}) => index === 1 && css`
+      display: none;
+    `}
+  }
 `;
+
 
 export const PageWrapper = styled.div`
   position: absolute;
@@ -21,11 +36,11 @@ export const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
 export const PageImage = styled.div`
   ${mixin.circleImage(30)};
-`
+`;
 
 export const PageName = styled.p`
   font-size: 14px;
@@ -34,5 +49,8 @@ export const PageName = styled.p`
   margin: 0;
 `;
 export const Image = styled.img`
-width: 280px;
-`
+  width: ${dimen.extraStoryWidth}px;
+  @media screen and (max-width: 2000px) {
+    width: ${(dimen.extraStoryWidth * 2) / 3}px;
+  }
+`;

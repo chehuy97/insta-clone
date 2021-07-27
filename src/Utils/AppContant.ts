@@ -18,7 +18,8 @@ export const images = {
 
 export const dimen = {
   contentWidth: 600,
-  mainStoryWidth: 580
+  mainStoryWidth: 550,
+  extraStoryWidth: 250
 };
 
 export const mixin = {
@@ -49,5 +50,13 @@ export const mixin = {
   cursor: pointer;
   border-radius: ${size/2}px;
   ${({ url }: { url: string }) => mixin.backgroundImage(url)}
+  `,
+  progressBar: (left:number, width:number, index:number) => css`
+    margin-left: ${left}px;
+    width: ${width}px;
+    @media screen and (max-width: 2000px){
+      margin-left: ${left-10/3-index*(width+10)/3}px;
+      width: ${width*2/3}px;
+    }
   `
 };

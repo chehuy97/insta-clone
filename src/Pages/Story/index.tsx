@@ -16,7 +16,6 @@ import {
 import { images } from "../../Utils/AppContant";
 import cancelImg from "../../Assets/Images/icons/cancel.png";
 import { useHistory, useLocation, useRouteMatch } from "react-router-dom";
-import { Story } from "../../Mocks/story";
 import { useState, useEffect } from "react";
 import previousBtn from "../../Assets/Images/icons/previous.png";
 import nextBtn from "../../Assets/Images/icons/next.png";
@@ -70,6 +69,7 @@ const StoryPage = () => {
           index
       }
       width={(dimen.mainStoryWidth - (contentLength + 1) * 10) / contentLength}
+      index={index}
       variant="determinate"
       value={progressNumber(index)}
     />
@@ -88,7 +88,6 @@ const StoryPage = () => {
           }
           return 0;
         }
-        console.log("timer");
 
         return Math.min(oldProgress + 100 / (duration / 0.21), 100);
       });
@@ -123,7 +122,7 @@ const StoryPage = () => {
 
   const handle_playing = () => {
     if (playing) {
-      console.log("Pause");
+      console.log("Pause");    
       clearInterval(timer);
     } else {
       console.log("Play");
@@ -138,10 +137,10 @@ const StoryPage = () => {
       <StoryContainer>
         <Wrapper>
           {!(pageIndex < 2) ? (
-            <ExtraStory storyItem={stories[pageIndex - 2]} />
+            <ExtraStory storyItem={stories[pageIndex - 2]} index={2} />
           ) : null}
           {!(pageIndex < 1) ? (
-            <ExtraStory storyItem={stories[pageIndex - 1]} />
+            <ExtraStory storyItem={stories[pageIndex - 1]} index={1} />
           ) : null}
         </Wrapper>
         <ChangeStoryButton url={previousBtn} onClick={() => previousStory()} />
@@ -183,10 +182,10 @@ const StoryPage = () => {
         <ChangeStoryButton url={nextBtn} onClick={() => nextStory()} />
         <Wrapper>
           {!(pageIndex > stories.length - 2) ? (
-            <ExtraStory storyItem={stories[pageIndex + 1]} />
+            <ExtraStory storyItem={stories[pageIndex + 1]} index={1} />
           ) : null}
           {!(pageIndex > stories.length - 3) ? (
-            <ExtraStory storyItem={stories[pageIndex + 2]} />
+            <ExtraStory storyItem={stories[pageIndex + 2]} index={2} />
           ) : null}
         </Wrapper>
       </StoryContainer>
