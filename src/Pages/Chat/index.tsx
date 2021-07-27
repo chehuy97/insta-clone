@@ -1,8 +1,10 @@
+import { Container } from './styles'
+
 const ChatPage = () => {
     return(
-        <div>
+        <Container>
             <p>Chat</p>
-        </div>
+        </Container>
     )
 }
 

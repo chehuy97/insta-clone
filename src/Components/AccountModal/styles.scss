@@ -1,0 +1,38 @@
+
+.container {
+    width: 220px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: absolute;
+    top: 32px;
+    right: -85px;
+}
+
+.itemWrapper {
+    height: 38px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .image{
+        width: 20px;
+        height: 20px;
+        margin-left: 10px;
+    }
+
+    .text{
+        margin: 0px;
+        font-size: 14px;
+        margin-left: 10px;
+    }
+    &:hover{
+        background-color: #fafafa;
+
+    }
+}
+
+.line{
+    background-color: #bebebe;
+    height: 2px;
+}

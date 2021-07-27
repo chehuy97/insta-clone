@@ -1,11 +1,14 @@
-import { NavView, Logo, ButtonView } from "./styles";
+import { NavView, Logo, ButtonView, Avatar } from "./styles";
 import { images } from "../../Utils/AppContant";
 import SearchBar from "./SearchBar";
 import BarItem, { itemBarName } from "./BarItem";
-import BarAvatar from "./BarAvatar";
+import { useState } from 'react'
+import avatar from '../../Assets/Images/avatar/avatar-40.png'
+import AccountModal from "../AccountModal";
 
 const NavigationBar = () => {
-
+  const [showModal, setShowModal] = useState(false)
+  
   return (
     <NavView>
       <Logo src={images.logo} />
@@ -15,7 +18,8 @@ const NavigationBar = () => {
         <BarItem title={itemBarName.CHAT}/>
         <BarItem title={itemBarName.EXPLORE}/>
         <BarItem title={itemBarName.NOTICE}/>
-        <BarAvatar/>
+        <Avatar url={avatar} onClick={() => setShowModal(!showModal)}/>
+        {showModal ? <AccountModal/> : null}
       </ButtonView>
     </NavView>
   ); 
