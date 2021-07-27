@@ -40,28 +40,13 @@ const StoryPage = () => {
   const [storyIndex, setStoryIndex] = useState(0);
   const [playing, setPlaying] = useState(true);
   const [sound, setSound] = useState(true);
-  const [duration,setDuration] = useState(6)
+  const [duration, setDuration] = useState(8);
   const contentLength = storyItem.content.length;
+  var timer: NodeJS.Timeout;
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((oldProgress) => {
-        if (oldProgress === 100) {       
-          if (storyIndex < contentLength - 1) {
-            setStoryIndex(storyIndex + 1);
-          } else if ((pageIndex < stories.length - 1) ) {
-            setStoryIndex(0)
-            setStoryIndex(0)
-            setPageIndex(pageIndex + 1);
-            setStoryItem(stories[pageIndex + 1]);
-          }
-          return 0;
-        }
-        
-        return Math.min(oldProgress + 100/(duration/0.21), 100);
-      });
-    }, 200);
-
+    console.log("reload");
+    timer = setTimer();
     return () => {
       clearInterval(timer);
     };
@@ -90,6 +75,26 @@ const StoryPage = () => {
     />
   ));
 
+  const setTimer = (): NodeJS.Timeout => {
+    return setInterval(() => {
+      setProgress((oldProgress) => {
+        if (oldProgress === 100) {
+          if (storyIndex < contentLength - 1) {
+            setStoryIndex(storyIndex + 1);
+          } else if (pageIndex < stories.length - 1) {
+            setStoryIndex(0);
+            setPageIndex(pageIndex + 1);
+            setStoryItem(stories[pageIndex + 1]);
+          }
+          return 0;
+        }
+        console.log("timer");
+
+        return Math.min(oldProgress + 100 / (duration / 0.21), 100);
+      });
+    }, 200);
+  };
+
   const previousStory = () => {
     if (storyIndex != 0) {
       setProgress(0);
@@ -97,7 +102,7 @@ const StoryPage = () => {
       // history.push(match.path+'/'+storyItem.pageName+'/'+storyItem.content[storyIndex].story_id)
     } else if (pageIndex != 0) {
       setProgress(0);
-      setStoryIndex(0)
+      setStoryIndex(0);
       setPageIndex(pageIndex - 1);
       setStoryItem(stories[pageIndex - 1]);
     }
@@ -110,10 +115,21 @@ const StoryPage = () => {
       // history.push(match.path+'/'+storyItem.pageName+'/'+storyItem.content[storyIndex].story_id)
     } else if (pageIndex < stories.length - 1) {
       setProgress(0);
-      setStoryIndex(0)
+      setStoryIndex(0);
       setPageIndex(pageIndex + 1);
-      setStoryItem(stories[pageIndex+1]);
+      setStoryItem(stories[pageIndex + 1]);
     }
+  };
+
+  const handle_playing = () => {
+    if (playing) {
+      console.log("Pause");
+      clearInterval(timer);
+    } else {
+      console.log("Play");
+      timer = setTimer();
+    }
+    setPlaying(!playing);
   };
 
   return (
@@ -132,7 +148,10 @@ const StoryPage = () => {
         <MainStoryWrapper>
           {listProgresses}
           {storyItem.content[storyIndex].type == "image" ? (
-            <Image src={storyItem.content[storyIndex].url} onLoad={() =>setDuration(6)}/>
+            <Image
+              src={storyItem.content[storyIndex].url}
+              onLoad={() => setDuration(8)}
+            />
           ) : (
             <ReactPlayer
               width={dimen.mainStoryWidth + "px"}
