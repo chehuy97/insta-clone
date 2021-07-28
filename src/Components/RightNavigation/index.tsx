@@ -5,7 +5,7 @@ import {
   SeeAllButton,
   FooterImage,
 } from "./styles";
-import footer from "../../Assets/Images/footer.png";
+import footer from "../../Assets/Images/crop/footer.png";
 import AccountItem from "./Account";
 import FollowerItem from "./FollowerItem";
 import { followers } from "../../Mocks/follower";

@@ -1,0 +1,82 @@
+$login-form-width: 350;
+$input-width: 270;
+$input-height: 35;
+
+.login-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    .wrapper {
+        display: flex;
+        flex-direction: row;
+        margin-top: 50px;
+    }
+
+    .form {
+        width: $login-form-width+px;
+        height: 400px;
+        margin: 50px 30px 0px 30px;
+        border: solid 1px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .img-login {
+        margin: 40px 0px 20px 0px;
+    }
+
+    .textfield {
+        width: $input-width+px;
+        margin-top: 10px;
+    }
+
+    .login-btn {
+        width: $input-width+px;
+        margin-top: 20px;
+        border: 0px;
+        height: 30px;
+        border-radius: 10px;
+        background-color: #6ac5fe;
+        color: white;
+        font-weight: bold;
+        &:active {
+            transform: translateY(2px);
+        }
+    }
+
+    .or-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 10px 0px 10px 0px;
+    }
+
+    .line {
+        width: 100px;
+        height: 1.5px;
+        margin: 0px 10px 0px 10px ;
+        background-color: gray;
+    }
+
+    .or-text {
+        color: gray;
+    }
+
+    .forgot-password {
+        color: #051094;
+        margin: 0px;
+        cursor: pointer;
+        &:active{
+            transform: translateY(2px);
+        }
+    }
+
+    .footer{
+        margin-top: 50px;
+    }
+}

@@ -13,7 +13,8 @@ export const fontSize = {
 
 export const images = {
   logo: "https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png",
-  logo_light: 'https://www.instagram.com/static/images/web/mobile_nav_type_logo-dark.png/ff9b85f2b7ca.png'
+  logo_light: 'https://www.instagram.com/static/images/web/mobile_nav_type_logo-dark.png/ff9b85f2b7ca.png',
+  login_image:'https://www.instagram.com/static/images/homepage/screenshot3.jpg/f0c687aa6ec2.jpg'
 };
 
 export const dimen = {
