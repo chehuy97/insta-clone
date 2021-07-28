@@ -49,6 +49,9 @@ $input-height: 35;
         background-color: #6ac5fe;
         color: white;
         font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         &:active {
             transform: translateY(2px);
         }

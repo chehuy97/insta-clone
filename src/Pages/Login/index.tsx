@@ -15,6 +15,7 @@ const Login = () => {
     if(username == 'admin' && password == 'password'){
         console.log('ok');
         localStorage.setItem('@authenticated', 'has')
+        window.location.reload()
     } else {
         alert('wrong username and password')
     }
@@ -47,9 +48,9 @@ const Login = () => {
             size="small"
             onChange={e => setPassword(e.target.value)}
           />
-          <button className="login-btn" onClick={() => handle_login()}>
+          <div className="login-btn" onClick={() => handle_login()}>
             log in
-          </button>
+          </div>
           <div className='or-wrapper'>
               <div className='line'/>
               <p className='or-text'>OR</p>
