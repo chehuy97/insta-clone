@@ -13,7 +13,7 @@ const Login = () => {
    const handle_login = () => {
     if(username == 'admin' && password == 'password'){
         console.log('ok');
-        
+        localStorage.setItem('@authenticated', 'has')
     } else {
         alert('wrong username and password')
     }
