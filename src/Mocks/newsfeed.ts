@@ -1,4 +1,4 @@
-import tieuhyVideo from "../Assets/Videos/tieuhy.mp4";
+import tieuhyVideo from "../Assets/videos/tieuhy.mp4";
 
 export const news:News[] = [
     {

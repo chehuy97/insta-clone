@@ -1,6 +1,6 @@
-import dance from '../Assets/Videos/dance.mp4'
-import peace from '../Assets/Videos/peace.mp4'
-import kingvader from '../Assets/Videos/kingvader.mp4'
+import dance from '../Assets/videos/dance.mp4'
+import peace from '../Assets/videos/peace.mp4'
+import kingvader from '../Assets/videos/kingvader.mp4'
 
 export interface Story {
   id:number
