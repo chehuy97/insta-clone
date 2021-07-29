@@ -8,7 +8,7 @@ import compassSelectedImage from "../../../Assets/Images/icons/compass-selected.
 import heartImage from "../../../Assets/Images/icons/heart.png";
 import heartSelectedImage from "../../../Assets/Images/icons/heart-selected.png";
 import { useRouteMatch, NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type barItemProp = {
   title: string;
@@ -24,7 +24,8 @@ export const itemBarName = {
 
 const BarItem = ({ title, handleEvent }: barItemProp) => {
   const match = useRouteMatch();
-  const path = title == itemBarName.HOME ? match.path : match.path + title;
+  const path = match.path+'/' + title;
+  
   const [isActive, setIsActive] = useState(false);
 
   const imageUrl = () => {

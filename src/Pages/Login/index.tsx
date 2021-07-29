@@ -5,17 +5,21 @@ import { images } from "../../Utils/AppContant";
 import TextField from "@material-ui/core/TextField";
 import { useState } from 'react'
 import { siginInWithFacebookMethod } from '../../firebase/firebase.utils'
+import { useHistory, useLocation } from "react-router-dom";
 
 const Login = () => {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const location = useLocation()
+    const history = useHistory();
+    // let { from } = location.state || { from: { pathname: "/project" } };
 
    const handle_login = () => {
     if(username == 'admin' && password == 'password'){
         console.log('ok');
         localStorage.setItem('@authenticated', 'has')
-        window.location.reload()
+        history.replace('/project')
     } else {
         alert('wrong username and password')
     }

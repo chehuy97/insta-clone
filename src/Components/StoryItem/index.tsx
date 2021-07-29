@@ -19,7 +19,7 @@ const StoryItem = ({ data, index }: storyProps) => {
           url={data.imagePage} 
           onClick={() => {
             history.push({
-              pathname:match.path+'stories/'+data.pageName,
+              pathname:match.path+'/stories',
               state: index
             })
           }}/>

@@ -23,12 +23,6 @@ export const firestore = firebase.firestore();
 
 const provider = new firebase.auth.FacebookAuthProvider();
 provider.setCustomParameters({ prompt: 'select_account'})
-console.log('haha');
-//   provider.addScope('user_birthday');
-//   firebase.auth().languageCode = 'it';
-//   provider.setCustomParameters({
-//     'display': 'popup'
-//   });
 export const siginInWithFacebookMethod = (callback: () => void) => {
   console.log("signin with fb");
 
