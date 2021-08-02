@@ -23,9 +23,9 @@ const Routes = () => {
         <ProtectedRoute path="/project">
           <NavigationRoute />
         </ProtectedRoute>
-        <ProtectedRoute path="/project/home/stories">
+        {/* <ProtectedRoute path="/project/home/stories">
           <StoryPage />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
       </Switch>
     </Router>
   );

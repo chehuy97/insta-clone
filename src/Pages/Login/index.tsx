@@ -3,7 +3,7 @@ import phoneCrop from "../../Assets/Images/crop/phoneCrop.png";
 import footerLogin from "../../Assets/Images/crop/footerLogin.png";
 import { images } from "../../Utils/AppContant";
 import TextField from "@material-ui/core/TextField";
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { siginInWithFacebookMethod } from '../../firebase/firebase.utils'
 import { useHistory, useLocation } from "react-router-dom";
 

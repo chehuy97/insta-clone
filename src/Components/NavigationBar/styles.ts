@@ -16,7 +16,6 @@ export const NavView = styled.div`
   justify-content: center;
   padding: 0px 20px 0px 20px;
   background: white;
-  position: relative;
   @media screen and (max-width: 1000px) {
     justify-content: space-between;
   }

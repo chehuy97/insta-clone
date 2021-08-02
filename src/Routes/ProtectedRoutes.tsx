@@ -10,7 +10,6 @@ export default function ProtectedRoute({
   ...routeProps
 }: ProtectedRouteProps) {
   const isAuthenticated = localStorage.getItem("@authenticated");
-  console.log("Authenticated changed");
 
   return (
     <Route

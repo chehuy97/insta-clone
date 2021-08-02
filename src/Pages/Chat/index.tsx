@@ -1,8 +1,9 @@
 import { Container } from './styles'
-import { RouteProps } from "react-router-dom"
+import { useEffect } from 'react'
+import {  useLocation, useRouteMatch, RouteProps } from 'react-router-dom'
+
 
 const ChatPage = (props:RouteProps) => {
-    console.log(props);
     return(
         <Container>
             <p>Chat</p>

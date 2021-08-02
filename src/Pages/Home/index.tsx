@@ -13,15 +13,17 @@ import previousImg from '../../Assets/Images/icons/previous.png'
 import nextImg from '../../Assets/Images/icons/next.png'
 import React, { useEffect } from 'react'
 import StoryPage from '../Story'
-import { Route, useRouteMatch, RouteProps } from 'react-router-dom'
+import { Route, useRouteMatch, RouteProps, useLocation } from 'react-router-dom'
 
 const Home = (props:RouteProps) => {
   const listNewsFeed = news.map((item) => <NewsItem data={item} />);
   const listStories = stories.map((item, index) => <StoryItem data={item} index={index}/>);
+  const location  = useLocation()
   const match = useRouteMatch()
-  useEffect(() => {
-    console.log('props is ',props)
-  })
+  // useEffect(() => {
+  //   console.log('location is ',location)
+  //   console.log('match is ',match)
+  // })
   return (
     <>
     <HomeContainer>

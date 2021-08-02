@@ -44,7 +44,6 @@ const StoryPage = () => {
   var timer: NodeJS.Timeout;
 
   useEffect(() => {
-    console.log("reload");
     timer = setTimer();
     return () => {
       clearInterval(timer);
