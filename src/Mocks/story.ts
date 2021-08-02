@@ -1,6 +1,6 @@
-import dance from '../Assets/Videos/dance.mp4'
-import peace from '../Assets/Videos/peace.mp4'
-import kingvader from '../Assets/Videos/kingvader.mp4'
+import dance from '../Assets/videos/dance.mp4'
+import peace from '../Assets/videos/peace.mp4'
+import kingvader from '../Assets/videos/kingvader.mp4'
 
 export interface Story {
   id:number
@@ -20,17 +20,17 @@ export const stories: Story[] = [
     id:863957209844,
     pageName: "BallerTalk",
     imagePage:
-      "https://scontent.fhan2-2.fna.fbcdn.net/v/t1.6435-9/84671212_2492574877518066_6487434614687137792_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=174925&_nc_ohc=1Wns3Moka4UAX9lZ01m&_nc_ht=scontent.fhan2-2.fna&oh=f9d9ee89d92d115ff409eba70bdda349&oe=61210BFB",
+      "https://res.cloudinary.com/teepublic/image/private/s--07RXetyM--/t_Resized%20Artwork/c_fit,g_north_west,h_1054,w_1054/co_ffffff,e_outline:53/co_ffffff,e_outline:inner_fill:53/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_auto,h_630,q_90,w_630/v1594562666/production/designs/12143311_0.jpg",
     content: [
       {
         story_id:8233478493,
         type: "image",
-        url: "https://scontent.fhan2-2.fna.fbcdn.net/v/t39.30808-6/p526x296/204660173_3821211344654406_5961518715005149489_n.jpg?_nc_cat=111&_nc_rgb565=1&ccb=1-3&_nc_sid=730e14&_nc_ohc=_rnowkZJuvcAX-dJsyC&_nc_ht=scontent.fhan2-2.fna&oh=c1849acee7b83c967af8300db5bcd0c1&oe=60FF217B",
+        url: "https://npr.brightspotcdn.com/dims4/default/dcb7624/2147483647/strip/true/crop/2695x1781+0+0/resize/880x582!/quality/90/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F5d%2Fe5%2Fbf0bc4b14652ac8a77cd4cc2ad3b%2Fgettyimages-1328249149.jpg",
       },
       {
         story_id:9276533882,
         type: "image",
-        url: "https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/177982616_3846512515457622_2970670788430955627_n.jpg?_nc_cat=107&_nc_rgb565=1&ccb=1-3&_nc_sid=730e14&_nc_ohc=fUva-X53eK8AX8ORTOV&tn=Y-PnIJ47PQ6Ulxdv&_nc_ht=scontent.fhan2-3.fna&oh=5acdc1cd6d66ee13531f4feb167879db&oe=6101CC1F",
+        url: "https://fadeawayworld.net/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTgwMTMyNzM3NjU1MTg2NTU0/nba-trade-rumors--lakers-could-create-an-amazing-big-three-with-lebron-james-anthony-davis-and-russell-westbrook.jpg",
       },
       {
         story_id:1987527856,
